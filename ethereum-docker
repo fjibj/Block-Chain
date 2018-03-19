@@ -1,0 +1,30 @@
+Docker搭建以太坊私链
+
+参考https://www.tuicool.com/articles/fU3ieqF
+
+一、 启动容器
+
+$git clone https://github.com/yutianwu/ethereum-docker
+
+$cd ethereum-docker
+
+$docker-compose up -d
+
+http://xx.xx.xx.xx:3000 
+
+二、挖矿
+
+$docker exec -it ethereumdocker_eth_1 /bin/bash
+
+bash-4.3# geth attach ipc://root/.ethereum/devchain/geth.ipc
+Welcome to the Geth JavaScript console!
+
+instance: Geth/v1.7.3-unstable/linux-amd64/go1.9.2
+coinbase: 0x007ccffb7916f37f7aeef05e8096ecfbe55afc2f
+at block: 0 (Thu, 01 Jan 1970 00:00:00 UTC)
+ datadir: /root/.ethereum/devchain
+ modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
+
+> miner.start()
+null
+
